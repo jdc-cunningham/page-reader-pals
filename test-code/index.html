@@ -16,9 +16,10 @@
 
     const say = (msg) => {
       const utterance = new SpeechSynthesisUtterance(msg);
-      utterance.lang = 'ja-JP'; // en-US ja-JP
-      utterance.pitch = 0.9;
-      utterance.voice = voices[13]; // JP 13, US 4
+      utterance.lang = 'en-US'; // en-US ja-JP
+      utterance.pitch = 1;
+      utterance.rate = 0.9;
+      utterance.voice = voices[4]; // JP 13, US 4
       speechSynthesis.speak(utterance);
     }
 
@@ -28,7 +29,7 @@
     }
 
     document.addEventListener('click', () => {
-      say('Gūzen ni mo, watashi no namae mo jugemujugemu gokonosurikire kaijari suigyo no suigyo Matsu Hakobu rai Matsu fūraimatsu');
+      say("Text");
     });
   </script>
 </body>
