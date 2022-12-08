@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // referencing an old project https://github.com/jdc-cunningham/crypto-alerts-and-tools/blob/master/gdax-socket.js
+    // https://mdn.github.io/web-speech-api/speak-easy-synthesis/
+    // note speech will not work until user interacts with the page like clicking on allow notifications
+    // the interaction is the clicking of the page itself, the allow notification button is for setting the notifications
+    let msg;
+
+    const say = (msg) => {
+      const utterance = new SpeechSynthesisUtterance(msg);
+      utterance.lang = 'ja-JP'; // en-US ja-JP
+      utterance.pitch = 0.9;
+      utterance.voice = voices[13]; // JP 13, US 4
+      speechSynthesis.speak(utterance);
+    }
+
+    window.speechSynthesis.onvoiceschanged = function() {
+      const synth = window.speechSynthesis;
+      voices = synth.getVoices();
+    }
+
+    document.addEventListener('click', () => {
+      say('Gūzen ni mo, watashi no namae mo jugemujugemu gokonosurikire kaijari suigyo no suigyo Matsu Hakobu rai Matsu fūraimatsu');
+    });
+  </script>
+</body>
+</html>
